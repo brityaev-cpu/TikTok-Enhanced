@@ -1,0 +1,40 @@
+{
+  "name": "tiktok-enhanced",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Unofficial desktop TikTok client with desktop controls",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis",
+    "dist:portable": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "local.tiktok.enhanced",
+    "productName": "TikTok Enhanced",
+    "files": [
+      "main.js",
+      "toolbar.html",
+      "toolbar.js",
+      "toolbar-preload.js",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

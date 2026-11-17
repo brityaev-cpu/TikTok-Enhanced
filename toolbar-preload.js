@@ -1,0 +1,1 @@
+const {contextBridge,ipcRenderer}=require('electron');contextBridge.exposeInMainWorld('desktop',{command:(cmd,value)=>ipcRenderer.send('command',cmd,value),state:()=>ipcRenderer.invoke('get-state'),onState:callback=>ipcRenderer.on('state',(_event,value)=>callback(value))});
